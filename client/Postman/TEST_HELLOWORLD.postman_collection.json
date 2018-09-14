@@ -1,0 +1,283 @@
+{
+	"info": {
+		"name": "TEST_HELLOWORLD",
+		"_postman_id": "303438f2-8751-c950-95f0-aaa2aa6b0211",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "64964646-8701-4d2f-9d97-74ea0a844656",
+						"type": "text/javascript",
+						"exec": [
+							"postman.setGlobalVariable(\"v4uuid\", 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) { var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8); return v.toString(16); })); "
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{jwt}}"
+					},
+					{
+						"key": "x-client-cert",
+						"value": "MIIDYDCCAkgCCQDb4NNhXdxX1TANBgkqhkiG9w0BAQsFADByMQswCQYDVQQGEwJGUjEPMA0GA1UECAwGQ2VudHJlMRAwDgYDVQQHDAdPcmxlYW5zMRQwEgYDVQQKDAtTb3ByYVN0ZXJpYTEUMBIGA1UECwwLU29wcmFTdGVyaWExFDASBgNVBAMMC1NvcHJhU3RlcmlhMB4XDTE4MDMwMTEwNDMyM1oXDTQyMDIyMzEwNDMyM1owcjELMAkGA1UEBhMCRlIxDzANBgNVBAgMBkNlbnRyZTEQMA4GA1UEBwwHT3JsZWFuczEUMBIGA1UECgwLU29wcmFTdGVyaWExFDASBgNVBAsMC1NvcHJhU3RlcmlhMRQwEgYDVQQDDAtTb3ByYVN0ZXJpYTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK8i5+1jvwDQg2/utajT2f2wfTsDQEY+NWQNoDAVFLUh3LFNOYA2neN4hJzqyjtL2h2Ga99gvXFeSE42Uyo/9s5gCUQ4gC7db1deybSQVJUi29RA1Jjy+hUo7PgdWVkRy6EkUwiXrBdIGc7WWibE0C93bj1Am9formKFOqt4tRXz6NXUDYzBcIeEcaFjEGBV5BRSpvddAQTfJPzDmjIVTa2n2UHSl4UG0sECBgJoXE8H+BgwrtEohWscJpDpjjWBhBWBMWEC2rh/UzwSRDQysg0R0D6qbOODxsMhpQ9pVC649998ln27rDFrMSvPs5mANVUw0xx24e+xL2qU0nrFmckCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAnzclV2xEivcPOoK/NHtkg57GVu8DonWASNF3H03SzaRVIKwibViOMmI12/RyEEAI/eSOsxVZmzp8sh29vr2dP0bxauPrvVSvXkpPSATkSk3H7FrR2ks1+bejHBILEDQwSC3mDyB0UUNV9J+UkPCgY6mn+pSDTz33VGMh0kJruhPul/9zyNeJIr0Wun8TKNJ5k1NIioWPo9loB5YwwZwghf7jKcKzLHgC73v/M43ppS5xoX/V1Xz+VQPhliAbISLcsgQTXlKoSQO9HW1gG1t7084ZD3UDWPFYUMr3VT0HekBmEDDU/ZBtuZqPHq7Zlb6P/Co5Z8WObOmES5gdo5ALZA=="
+					},
+					{
+						"key": "api-key",
+						"value": "l7xxbd648791bb6e4dc886873cf4af5d44c5"
+					},
+					{
+						"key": "correlationId",
+						"value": "{{v4uuid}}"
+					},
+					{
+						"key": "appRequestCode",
+						"value": "APP_0038"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://{{baseUrl}}/test/V1/helloworld/",
+					"protocol": "https",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"test",
+						"V1",
+						"helloworld",
+						""
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "GET /{myWord}",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "70e7315d-ed64-4324-8e03-e56e437ac09f",
+						"type": "text/javascript",
+						"exec": [
+							"postman.setGlobalVariable(\"v4uuid\", 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) { var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8); return v.toString(16); })); "
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{jwt}}"
+					},
+					{
+						"key": "x-client-cert",
+						"value": "MIIDYDCCAkgCCQDb4NNhXdxX1TANBgkqhkiG9w0BAQsFADByMQswCQYDVQQGEwJGUjEPMA0GA1UECAwGQ2VudHJlMRAwDgYDVQQHDAdPcmxlYW5zMRQwEgYDVQQKDAtTb3ByYVN0ZXJpYTEUMBIGA1UECwwLU29wcmFTdGVyaWExFDASBgNVBAMMC1NvcHJhU3RlcmlhMB4XDTE4MDMwMTEwNDMyM1oXDTQyMDIyMzEwNDMyM1owcjELMAkGA1UEBhMCRlIxDzANBgNVBAgMBkNlbnRyZTEQMA4GA1UEBwwHT3JsZWFuczEUMBIGA1UECgwLU29wcmFTdGVyaWExFDASBgNVBAsMC1NvcHJhU3RlcmlhMRQwEgYDVQQDDAtTb3ByYVN0ZXJpYTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK8i5+1jvwDQg2/utajT2f2wfTsDQEY+NWQNoDAVFLUh3LFNOYA2neN4hJzqyjtL2h2Ga99gvXFeSE42Uyo/9s5gCUQ4gC7db1deybSQVJUi29RA1Jjy+hUo7PgdWVkRy6EkUwiXrBdIGc7WWibE0C93bj1Am9formKFOqt4tRXz6NXUDYzBcIeEcaFjEGBV5BRSpvddAQTfJPzDmjIVTa2n2UHSl4UG0sECBgJoXE8H+BgwrtEohWscJpDpjjWBhBWBMWEC2rh/UzwSRDQysg0R0D6qbOODxsMhpQ9pVC649998ln27rDFrMSvPs5mANVUw0xx24e+xL2qU0nrFmckCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAnzclV2xEivcPOoK/NHtkg57GVu8DonWASNF3H03SzaRVIKwibViOMmI12/RyEEAI/eSOsxVZmzp8sh29vr2dP0bxauPrvVSvXkpPSATkSk3H7FrR2ks1+bejHBILEDQwSC3mDyB0UUNV9J+UkPCgY6mn+pSDTz33VGMh0kJruhPul/9zyNeJIr0Wun8TKNJ5k1NIioWPo9loB5YwwZwghf7jKcKzLHgC73v/M43ppS5xoX/V1Xz+VQPhliAbISLcsgQTXlKoSQO9HW1gG1t7084ZD3UDWPFYUMr3VT0HekBmEDDU/ZBtuZqPHq7Zlb6P/Co5Z8WObOmES5gdo5ALZA=="
+					},
+					{
+						"key": "api-key",
+						"value": "l7xxbd648791bb6e4dc886873cf4af5d44c5"
+					},
+					{
+						"key": "correlationId",
+						"value": "{{v4uuid}}"
+					},
+					{
+						"key": "appRequestCode",
+						"value": "APP_0038"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://{{baseUrl}}/test/V1/helloworld/foo",
+					"protocol": "https",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"test",
+						"V1",
+						"helloworld",
+						"foo"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "POST /",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "52400978-5269-47e8-bf6b-85612a2671d7",
+						"type": "text/javascript",
+						"exec": [
+							"postman.setGlobalVariable(\"v4uuid\", 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) { var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8); return v.toString(16); })); "
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{jwt}}"
+					},
+					{
+						"key": "x-client-cert",
+						"value": "MIIDYDCCAkgCCQDb4NNhXdxX1TANBgkqhkiG9w0BAQsFADByMQswCQYDVQQGEwJGUjEPMA0GA1UECAwGQ2VudHJlMRAwDgYDVQQHDAdPcmxlYW5zMRQwEgYDVQQKDAtTb3ByYVN0ZXJpYTEUMBIGA1UECwwLU29wcmFTdGVyaWExFDASBgNVBAMMC1NvcHJhU3RlcmlhMB4XDTE4MDMwMTEwNDMyM1oXDTQyMDIyMzEwNDMyM1owcjELMAkGA1UEBhMCRlIxDzANBgNVBAgMBkNlbnRyZTEQMA4GA1UEBwwHT3JsZWFuczEUMBIGA1UECgwLU29wcmFTdGVyaWExFDASBgNVBAsMC1NvcHJhU3RlcmlhMRQwEgYDVQQDDAtTb3ByYVN0ZXJpYTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK8i5+1jvwDQg2/utajT2f2wfTsDQEY+NWQNoDAVFLUh3LFNOYA2neN4hJzqyjtL2h2Ga99gvXFeSE42Uyo/9s5gCUQ4gC7db1deybSQVJUi29RA1Jjy+hUo7PgdWVkRy6EkUwiXrBdIGc7WWibE0C93bj1Am9formKFOqt4tRXz6NXUDYzBcIeEcaFjEGBV5BRSpvddAQTfJPzDmjIVTa2n2UHSl4UG0sECBgJoXE8H+BgwrtEohWscJpDpjjWBhBWBMWEC2rh/UzwSRDQysg0R0D6qbOODxsMhpQ9pVC649998ln27rDFrMSvPs5mANVUw0xx24e+xL2qU0nrFmckCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAnzclV2xEivcPOoK/NHtkg57GVu8DonWASNF3H03SzaRVIKwibViOMmI12/RyEEAI/eSOsxVZmzp8sh29vr2dP0bxauPrvVSvXkpPSATkSk3H7FrR2ks1+bejHBILEDQwSC3mDyB0UUNV9J+UkPCgY6mn+pSDTz33VGMh0kJruhPul/9zyNeJIr0Wun8TKNJ5k1NIioWPo9loB5YwwZwghf7jKcKzLHgC73v/M43ppS5xoX/V1Xz+VQPhliAbISLcsgQTXlKoSQO9HW1gG1t7084ZD3UDWPFYUMr3VT0HekBmEDDU/ZBtuZqPHq7Zlb6P/Co5Z8WObOmES5gdo5ALZA=="
+					},
+					{
+						"key": "api-key",
+						"value": "l7xxbd648791bb6e4dc886873cf4af5d44c5"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "correlationId",
+						"value": "{{v4uuid}}"
+					},
+					{
+						"key": "appRequestCode",
+						"value": "APP_0038"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"attr1\": \"Doe\",\r\n  \"attr2\": \"John\"\r\n}"
+				},
+				"url": {
+					"raw": "https://{{baseUrl}}/test/V1/helloworld/",
+					"protocol": "https",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"test",
+						"V1",
+						"helloworld",
+						""
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "HEAD /HelloWorld",
+			"request": {
+				"method": "HEAD",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1MTkxMzE3MDl9.FKwkI6_P-wh_pHN4YdS5d1L8FipUUfZd4M24vviVqLuCksnNREMQkhPpc6Wrd2woui-x8vY_cC2SdNFFxeUg3d-D_CoxvIXoKU8aCY5YxnqbJ8EIxirYKaZA70IWkqq1IOLsC8h8q1BhFjOj2siWF2BBH7NDci8Q9ggv94soqVTSckhyysabRLu2HQJzadK8COYcnv9i30kKDKyVI6ZyeJYH88zgT6-jgEetUWlpyqI-GQVjo6Ej8R4V05tQ4KAd-9Dovy1d_Fio0jvAupWCGvLjj1JZiRXnnZWbSaC4V0QVG0_2MlPe2qp8lFQRp140kd2Zk3ulAitNBzQXARrxMQ"
+					},
+					{
+						"key": "x-client-cert",
+						"value": "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"
+					},
+					{
+						"key": "api-key",
+						"value": "l7xx6f7364a7005a411490b221ec7edd2b54"
+					},
+					{
+						"key": "correlationId",
+						"value": "123"
+					},
+					{
+						"key": "appRequestCode",
+						"value": "APP_0038"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://dev-api.mutuellegenerale.com/poc/V1/partenaire/HelloWorld",
+					"protocol": "https",
+					"host": [
+						"dev-api",
+						"mutuellegenerale",
+						"com"
+					],
+					"path": [
+						"poc",
+						"V1",
+						"partenaire",
+						"HelloWorld"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "50aad64a-3ec0-4477-955e-d0d8c3dbfc30",
+				"type": "text/javascript",
+				"exec": [
+					"var jwt;",
+					"",
+					"cert = pm.environment.get(\"certificat_prive_key\");",
+					"",
+					"var removeIllegalCharacters = function(input) {",
+					"    return input",
+					"        .replace(/=/g, '')",
+					"        .replace(/\\+/g, '-')",
+					"        .replace(/\\//g, '_');",
+					"};",
+					"",
+					"var base64object = function(input) {",
+					"    var inputWords = CryptoJS.enc.Utf8.parse(JSON.stringify(input));",
+					"    var base64 = CryptoJS.enc.Base64.stringify(inputWords);",
+					"    var output = removeIllegalCharacters(base64);",
+					"    return output;",
+					"};",
+					"",
+					"var iat = Math.floor(Date.now() / 1000);",
+					"var header = { 'alg': 'RS256', 'typ': 'JWT' };",
+					"var payload = { 'iat': iat };",
+					"",
+					"var unsignedToken = base64object(header) + \".\" + base64object(payload);",
+					"",
+					"var signatureHash = CryptoJS.HmacSHA256(unsignedToken, cert);",
+					"var signature = CryptoJS.enc.Base64.stringify(signatureHash);",
+					"var token = unsignedToken + '.' + signature;",
+					"",
+					"jwt = removeIllegalCharacters(token);",
+					"",
+					"pm.environment.set(\"jwt\", jwt);"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "76b1c7f4-0459-4554-ad88-745cdf3729af",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,326 @@
+swagger: '2.0'
+info:
+  description: Sandbox d'appel à l'API Gateway
+  version: '2.5'
+  title: API Helloworld
+host: hom-api.mutuellegenerale.com
+basePath: /APIMGT_TEST/test/V1/helloworld
+schemes:
+  - https
+  - http
+produces:
+  - application/json
+security:
+  - api-key: []
+  - Authorization: []
+securityDefinitions:
+  api-key:
+    type: apiKey
+    in: header
+    name: api-key
+    description: 'API Key, attribute to your App in portal.developer'
+  Authorization:
+    type: apiKey
+    in: header
+    name: Authorization
+    description: >-
+      token JWT in JWS format. Sign a payload 'iat' with RSA-SHA256 min and your
+      private key
+  x-client-cert:
+    type: apiKey
+    in: header
+    name: x-client-cert
+    description: public key certificat
+paths:
+  /:
+    get:
+      summary: 'Operation de test retournant "Hello, world !"'
+      operationId: GetHelloWorld
+      description: >
+        Ce service permet de tester la communication entre le SI d'un partenaire
+        et l'API Gateway LMG
+      parameters:
+        - in: header
+          name: appRequestCode
+          description: Code de l'application consommatrice liée à l'utilisateur
+          type: string
+          required: true
+        - in: header
+          name: correlationId
+          description: Identifiant unique de traçabilité généré pour chaque appel
+          required: true
+          type: string
+      tags:
+        - developer
+      responses:
+        '200':
+          description: Appel API Gateway OK
+          headers:
+            correlationId:
+              type: string
+              description: identifiant de tracabilité du client
+          schema:
+            $ref: '#/definitions/GetHelloWorldResponse'
+        '400':
+          description: Paramètres incorrects
+          headers:
+            correlationId:
+              type: string
+              description: identifiant de tracabilité du client
+          schema:
+            $ref: '#/definitions/GetHelloWorldResponse'
+        '401':
+          description: UNAUTHORIZED
+          headers:
+            correlationId:
+              type: string
+              description: identifiant de tracabilité du client
+          schema:
+            $ref: '#/definitions/Error'
+        '403':
+          description: FORBIDDEN
+          headers:
+            correlationId:
+              type: string
+              description: identifiant de tracabilité du client
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: UNEXPECTED ERROR
+          headers:
+            correlationId:
+              type: string
+              description: identifiant de tracabilité du client
+          schema:
+            $ref: '#/definitions/Error'
+        default:
+          description: UNEXPECTED ERROR
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      tags:
+        - developer
+      summary: Operation de test retournant un ID généré
+      operationId: PostMyMessage
+      description: Génère et retourne un Id
+      produces:
+        - application/json
+      parameters:
+        - in: header
+          name: correlationId
+          description: Identifiant unique de traçabilité généré pour chaque appel
+          required: true
+          type: string
+        - in: header
+          name: appRequestCode
+          description: Identifiant du consommateur
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: nouvelles informations de consentement
+          required: true
+          schema:
+            $ref: '#/definitions/MyMessage'
+      responses:
+        '201':
+          description: Création OK
+          headers:
+            location:
+              type: string
+              description: uri du consentement qui vient d'être créé
+            correlationId:
+              type: string
+              description: identifiant de tracabilité du client
+          schema:
+            $ref: '#/definitions/MyMessageResponse'
+        '400':
+          description: Paramètres invalides
+          headers:
+            correlationId:
+              type: string
+              description: identifiant de tracabilité du client
+          schema:
+            $ref: '#/definitions/MyMessageResponse'
+        '401':
+          description: AUTHENTIFICATION FAILURE
+          headers:
+            correlationId:
+              type: string
+              description: identifiant de tracabilité du client
+          schema:
+            $ref: '#/definitions/Error'
+        '403':
+          description: UNAUTHORIZED
+          headers:
+            correlationId:
+              type: string
+              description: identifiant de tracabilité du client
+          schema:
+            $ref: '#/definitions/Error'
+        '405':
+          description: INVALID_REQUEST
+          headers:
+            correlationId:
+              type: string
+              description: identifiant de tracabilité du client
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: UNEXPECTED ERROR
+          headers:
+            correlationId:
+              type: string
+              description: identifiant de tracabilité du client
+          schema:
+            $ref: '#/definitions/Error'
+        default:
+          description: UNEXPECTED ERROR
+          headers:
+            correlationId:
+              type: string
+              description: identifiant de tracabilité du client
+          schema:
+            $ref: '#/definitions/Error'
+  '/{myWord}':
+    get:
+      summary: Operation de test retournant le message envoyé en paramètre
+      operationId: GetMyMessageBack
+      description: >
+        Ce service permet de tester l'envoi d'un paramètre dans le path, et son
+        retour dans la réponse JSON
+      parameters:
+        - in: header
+          name: appRequestCode
+          description: Code de l'application consommatrice liée à l'utilisateur
+          type: string
+          required: true
+        - in: header
+          name: correlationId
+          description: Identifiant unique de traçabilité généré pour chaque appel
+          required: true
+          type: string
+        - in: path
+          name: myWord
+          description: Message envoyé
+          required: true
+          type: string
+      tags:
+        - developer
+      responses:
+        '200':
+          description: Appel API Gateway OK
+          headers:
+            correlationId:
+              type: string
+              description: identifiant de tracabilité du client
+          schema:
+            $ref: '#/definitions/GetMyMessageBackResponse'
+        '400':
+          description: Paramètres incorrects
+          headers:
+            correlationId:
+              type: string
+              description: identifiant de tracabilité du client
+          schema:
+            $ref: '#/definitions/GetMyMessageBackResponse'
+        '401':
+          description: UNAUTHORIZED
+          headers:
+            correlationId:
+              type: string
+              description: identifiant de tracabilité du client
+          schema:
+            $ref: '#/definitions/Error'
+        '403':
+          description: FORBIDDEN
+          headers:
+            correlationId:
+              type: string
+              description: identifiant de tracabilité du client
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: UNEXPECTED ERROR
+          headers:
+            correlationId:
+              type: string
+              description: identifiant de tracabilité du client
+          schema:
+            $ref: '#/definitions/Error'
+        default:
+          description: UNEXPECTED ERROR
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  GetHelloWorldResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        description: message du code retour fonctionnel
+        example: OK
+      resultat:
+        type: string
+        description: Resultat de l'appel
+        example: OK
+  GetMyMessageBackResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        description: message du code retour fonctionnel
+        example: OK
+      MyMessageBack:
+        type: string
+        description: Resultat de l'appel
+        example: OK
+  MyMessage:
+    type: object
+    properties:
+      attr1:
+        description: attribut 1
+        type: string
+      attr2:
+        description: attribut 2
+        type: string
+    required:
+      - attr1
+      - attr2
+  MyMessageResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        description: message du code retour fonctionnel
+        example: OK
+      resultat:
+        type: string
+        description: Id généré
+        example: null
+  Error:
+    type: object
+    required:
+      - Fault
+    properties:
+      Fault:
+        type: object
+        required:
+          - faultcode
+          - faultstring
+        properties:
+          faultcode:
+            type: integer
+            description: code of error
+            format: int32
+            example: 401
+          faultstring:
+            type: string
+            description: message of error
+            example: AUTHENTIFICATION_FAILURE
+          detail:
+            type: string
+            description: detail of error
+            example: >-
+              The authentification certificat is not allowed or token JWT is
+              incorrect. Please contact your Web Service Administrator
